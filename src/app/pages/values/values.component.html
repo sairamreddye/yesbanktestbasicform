@@ -1,0 +1,46 @@
+<table class="table">
+    <tbody *ngIf="studentDetails">
+        <tr>
+            <th>Email</th>
+            <td>{{studentDetails.Email}}</td>
+        </tr>
+        <tr>
+            <th>Student Group</th>
+            <td>{{studentDetails.studentGroup}}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{studentDetails.Name}}</td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td>{{studentDetails.Password}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{studentDetails.Address}}</td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td>{{studentDetails.Phone}}</td>
+        </tr>
+        <tr>
+            <th>guardianPhone</th>
+            <td>{{studentDetails.guardianPhone}}</td>
+        </tr>
+        <tr>
+            <th>enrolmentNumber</th>
+            <td>{{studentDetails.enrolmentNumber}}</td>
+        </tr>
+        <tr>
+            <th>status</th>
+            <td>{{studentDetails.status}}</td>
+        </tr>
+        <tr>
+            <th>uploadPhoto</th>
+            <td>
+                <img src="{{studentDetails.uploadPhoto}}" width="250" height="250">
+            </td>
+        </tr>
+    </tbody>
+</table>

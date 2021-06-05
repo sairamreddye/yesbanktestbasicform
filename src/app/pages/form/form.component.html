@@ -1,0 +1,121 @@
+<div class="container">
+    <div class="row custom-wrapper">
+        <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <label for="email">Email</label><sup>*</sup>
+                    <input type="email" class="form-control" id="Email" placeholder="Email" formControlName="Email">
+                    <div *ngIf="submitted && getControls.Email.errors?.required">
+                        Please Enter Emailid
+                    </div>
+                    <div
+                        *ngIf="((getControls.Email.touched || getControls.Email.dirty) && getControls.Email.errors?.pattern)">
+                        Please Enter Valid Emailid
+                    </div>
+                </div>
+                <div class="col-md-4 form-group">
+                    <label for="student">Student Group</label><sup>*</sup>
+                    <select class="form-control" id="student" formControlName="studentGroup">
+                        <option *ngFor="let group of studentGroup" value="{{group.status}}">{{group.status}}</option>
+                    </select>
+                    <div *ngIf="submitted && getControls.studentGroup.errors?.required">
+                        please select valid student group
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="name">Name</label><sup>*</sup>
+                    <input type="text" class="form-control" id="name" placeholder="username" formControlName="Name">
+                    <div *ngIf="submitted && getControls.Name.errors?.required">
+                        please enter name
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="password">Password</label><sup>*</sup>
+                    <input type="password" class="form-control" id="password" placeholder="password"
+                        formControlName="Password" minlength="6">
+                    <div *ngIf="submitted && getControls.Password.errors?.required">
+                        please enter password
+                    </div>
+                    <div *ngIf="getControls.Password.errors?.minlength">
+                        Password Mustbe Minimum 6 Charcters
+                    </div>
+                    <div *ngIf="getControls.Password.errors?.maxlength">
+                        Password Should Not exceed Maximum 8 Charcters
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <label for="address">Address</label><sup>*</sup>
+                    <input type="text" class="form-control" id="address" placeholder="address"
+                        formControlName="Address">
+                    <div *ngIf="submitted && getControls.Address.errors?.required">
+                        please enter address
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="phone">Phone Number</label><sup>*</sup>
+                    <input type="tel" class="form-control" id="phone" placeholder="phone number" formControlName="Phone"
+                        minlength="10" maxlength="10">
+                    <div
+                        *ngIf="submitted && getControls.Phone.errors?.required || getControls.Phone.touched && getControls.Phone.errors?.required">
+                        please enter phoneNumber
+                    </div>
+                    <div *ngIf="getControls.Phone.touched && getControls.Phone.errors?.pattern">
+                        please enter numbers only
+                    </div>
+                    <div
+                        *ngIf="getControls.Phone.touched && getControls.Phone.errors?.minlength && !getControls.Phone.errors?.pattern">
+                        please enter valid Phone Number
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="guardian">Guardian Number</label>
+                    <input type="tel" class="form-control" id="guardian" placeholder="guardian number"
+                        formControlName="guardianPhone" minlength="10" maxlength="10">
+                    <div
+                        *ngIf="submitted && getControls.guardianPhone.errors?.required || getControls.guardianPhone.touched && getControls.guardianPhone.errors?.required">
+                        please enter guardianphone
+                    </div>
+                    <div *ngIf="getControls.guardianPhone.touched && getControls.guardianPhone.errors?.pattern">
+                        please enter numbers only
+                    </div>
+                    <div
+                        *ngIf="getControls.guardianPhone.touched && getControls.guardianPhone.errors?.minlength && !getControls.guardianPhone.errors?.pattern">
+                        please enter valid Phone Number
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="enrollment">Enrollment Number</label><sup>*</sup>
+                    <input type="text" class="form-control" id="enrollment" placeholder="enrollment number"
+                        formControlName="enrolmentNumber">
+                    <div *ngIf="submitted && getControls.enrolmentNumber.errors?.required">
+                        please enter EnrolmentNumber
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="sel1">Status</label>
+                    <select class="form-control" id="sel1" formControlName="status">
+                        <option *ngFor="let status of status" value="{{status.status}}">{{status.status}}</option>
+                    </select>
+                    <div *ngIf="submitted && getControls.status.errors?.required">
+                        please enter select valid status
+                    </div>
+                </div>
+                <div class="col-md-6 align-self-start form-group">
+                    <label for="upload">File Upload</label><sup>*</sup>
+                    <input type="file" class="form-control" id="upload" formControlName="uploadPhoto"
+                        (change)="openImage($event)" accept="image/png,image/jpg,image/jpeg" />
+                    <div *ngIf="submitted && getControls.uploadPhoto.errors?.required">
+                        please upload image
+                    </div>
+                    <div *ngIf="getControls.uploadPhoto.errors?.notValidformat">
+                        please upload valid format
+                    </div>
+                </div>
+                <div class="col-md-12 form-group">
+                    <button class="btn btn-success mr-3" type="submit" [disabled]="studentForm.invalid">save</button>
+                    <button class="btn btn-danger">close</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
