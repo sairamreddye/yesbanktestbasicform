@@ -3,9 +3,9 @@
         <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="col-md-6 form-group">
-                    <label for="email">Email</label><sup>*</sup>
+                    <label for="email">Email hai venkat</label><sup>*</sup>
                     <input type="email" class="form-control" id="Email" placeholder="Email" formControlName="Email">
-                    <div *ngIf="submitted && getControls.Email.errors?.required">
+                    <div *ngIf="submitted && getControls.Email.errors?.required" class="is-error">
                         Please Enter Emailid
                     </div>
                     <div
@@ -18,14 +18,14 @@
                     <select class="form-control" id="student" formControlName="studentGroup">
                         <option *ngFor="let group of studentGroup" value="{{group.status}}">{{group.status}}</option>
                     </select>
-                    <div *ngIf="submitted && getControls.studentGroup.errors?.required">
+                    <div *ngIf="submitted && getControls.studentGroup.errors?.required" class="is-error">
                         please select valid student group
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="name">Name</label><sup>*</sup>
                     <input type="text" class="form-control" id="name" placeholder="username" formControlName="Name">
-                    <div *ngIf="submitted && getControls.Name.errors?.required">
+                    <div *ngIf="submitted && getControls.Name.errors?.required" class="is-error">
                         please enter name
                     </div>
                 </div>
@@ -33,13 +33,23 @@
                     <label for="password">Password</label><sup>*</sup>
                     <input type="password" class="form-control" id="password" placeholder="password"
                         formControlName="Password" minlength="6">
-                    <div *ngIf="submitted && getControls.Password.errors?.required">
+                    <!-- <div *ngIf="submitted && getControls.Password.errors?.required" class="is-error"  (keyup)="allowPasswordPatternOnly($event)">
                         please enter password
                     </div>
-                    <div *ngIf="getControls.Password.errors?.minlength">
+                    <div *ngIf="getControls.Password.errors?.minlength" class="is-error">
                         Password Mustbe Minimum 6 Charcters
                     </div>
-                    <div *ngIf="getControls.Password.errors?.maxlength">
+                    <div *ngIf="getControls.Password.errors?.maxlength" class="is-error">
+                        Password Should Not exceed Maximum 8 Charcters
+                    </div> -->
+
+                     <div *ngIf="submitted && getControls.Password.errors?.required" class="is-error">
+                        please enter password
+                    </div>
+                    <div *ngIf="getControls.Password.errors?.minlength" class="is-error">
+                        Password Mustbe Minimum 6 Charcters
+                    </div>
+                    <div *ngIf="getControls.Password.errors?.maxlength" class="is-error">
                         Password Should Not exceed Maximum 8 Charcters
                     </div>
                 </div>
@@ -47,7 +57,7 @@
                     <label for="address">Address</label><sup>*</sup>
                     <input type="text" class="form-control" id="address" placeholder="address"
                         formControlName="Address">
-                    <div *ngIf="submitted && getControls.Address.errors?.required">
+                    <div *ngIf="submitted && getControls.Address.errors?.required" class="is-error">
                         please enter address
                     </div>
                 </div>
@@ -56,14 +66,14 @@
                     <input type="tel" class="form-control" id="phone" placeholder="phone number" formControlName="Phone"
                         minlength="10" maxlength="10">
                     <div
-                        *ngIf="submitted && getControls.Phone.errors?.required || getControls.Phone.touched && getControls.Phone.errors?.required">
+                        *ngIf="submitted && getControls.Phone.errors?.required || getControls.Phone.touched && getControls.Phone.errors?.required" class="is-error">
                         please enter phoneNumber
                     </div>
                     <div *ngIf="getControls.Phone.touched && getControls.Phone.errors?.pattern">
                         please enter numbers only
                     </div>
                     <div
-                        *ngIf="getControls.Phone.touched && getControls.Phone.errors?.minlength && !getControls.Phone.errors?.pattern">
+                        *ngIf="getControls.Phone.touched && getControls.Phone.errors?.minlength && !getControls.Phone.errors?.pattern" class="is-error">
                         please enter valid Phone Number
                     </div>
                 </div>
@@ -72,14 +82,14 @@
                     <input type="tel" class="form-control" id="guardian" placeholder="guardian number"
                         formControlName="guardianPhone" minlength="10" maxlength="10">
                     <div
-                        *ngIf="submitted && getControls.guardianPhone.errors?.required || getControls.guardianPhone.touched && getControls.guardianPhone.errors?.required">
+                        *ngIf="submitted && getControls.guardianPhone.errors?.required || getControls.guardianPhone.touched && getControls.guardianPhone.errors?.required" class="is-error">
                         please enter guardianphone
                     </div>
                     <div *ngIf="getControls.guardianPhone.touched && getControls.guardianPhone.errors?.pattern">
                         please enter numbers only
                     </div>
                     <div
-                        *ngIf="getControls.guardianPhone.touched && getControls.guardianPhone.errors?.minlength && !getControls.guardianPhone.errors?.pattern">
+                        *ngIf="getControls.guardianPhone.touched && getControls.guardianPhone.errors?.minlength && !getControls.guardianPhone.errors?.pattern" class="is-error">
                         please enter valid Phone Number
                     </div>
                 </div>
@@ -87,7 +97,7 @@
                     <label for="enrollment">Enrollment Number</label><sup>*</sup>
                     <input type="text" class="form-control" id="enrollment" placeholder="enrollment number"
                         formControlName="enrolmentNumber">
-                    <div *ngIf="submitted && getControls.enrolmentNumber.errors?.required">
+                    <div *ngIf="submitted && getControls.enrolmentNumber.errors?.required" class="is-error">
                         please enter EnrolmentNumber
                     </div>
                 </div>
@@ -96,7 +106,7 @@
                     <select class="form-control" id="sel1" formControlName="status">
                         <option *ngFor="let status of status" value="{{status.status}}">{{status.status}}</option>
                     </select>
-                    <div *ngIf="submitted && getControls.status.errors?.required">
+                    <div *ngIf="submitted && getControls.status.errors?.required" class="is-error">
                         please enter select valid status
                     </div>
                 </div>
@@ -104,10 +114,10 @@
                     <label for="upload">File Upload</label><sup>*</sup>
                     <input type="file" class="form-control" id="upload" formControlName="uploadPhoto"
                         (change)="openImage($event)" accept="image/png,image/jpg,image/jpeg" />
-                    <div *ngIf="submitted && getControls.uploadPhoto.errors?.required">
+                    <div *ngIf="submitted && getControls.uploadPhoto.errors?.required" class="is-error">
                         please upload image
                     </div>
-                    <div *ngIf="getControls.uploadPhoto.errors?.notValidformat">
+                    <div *ngIf="getControls.uploadPhoto.errors?.notValidformat" class="is-error">
                         please upload valid format
                     </div>
                 </div>

@@ -33,6 +33,7 @@ export class FormComponent implements OnInit {
     status: [this.status[0].status, [Validators.required]],
     uploadPhoto: ["", [Validators.required]]
   });
+  text: string;
 
   constructor(private fb: FormBuilder, private data: DataService, private route: Router) { }
 
@@ -72,6 +73,11 @@ export class FormComponent implements OnInit {
      this.studentForm.value.uploadPhoto = data.fileUrl = reader.result;
       }
     }
+  }
+
+  allowPasswordPatternOnly(x){
+    this.text += x.target.value;
+    console.log("text:"+this.text)
   }
 
 }
