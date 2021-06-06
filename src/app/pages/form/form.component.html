@@ -3,7 +3,7 @@
         <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="col-md-6 form-group">
-                    <label for="email">Email hai venkat</label><sup>*</sup>
+                    <label for="email">Email</label><sup>*</sup>
                     <input type="email" class="form-control" id="Email" placeholder="Email" formControlName="Email">
                     <div *ngIf="submitted && getControls.Email.errors?.required" class="is-error">
                         Please Enter Emailid
